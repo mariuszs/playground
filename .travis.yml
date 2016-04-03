@@ -11,7 +11,7 @@ before_script:
   - ./mvnw release-candidate:updateVersion -Drevision=`git rev-parse --short HEAD`
 
 script:
-  - ./mvnw deploy --settings .mvn/settings.xml
+  - ./mvnw deploy --settings .mvn/settings.xml -Prelease
 
 cache:
   directories:
