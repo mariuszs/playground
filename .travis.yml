@@ -8,7 +8,7 @@ before_install:
   - gpg --fast-import .mvn/codesigning.asc
 
 before_script:
-  - ./mvnw release-candidate:updateVersion -Drevision=`git rev-parse --short HEAD`
+  - ./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER
 
 script:
   - ./mvnw deploy --settings .mvn/settings.xml -Prelease

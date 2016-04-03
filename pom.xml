@@ -113,8 +113,7 @@
                             <goal>updateVersion</goal>
                         </goals>
                         <configuration>
-                            <releaseVersionFormat>{{ api_version }}-{{ timestamp('YYYYMMddHHmm') }}.${revision}
-                            </releaseVersionFormat>
+                            <releaseVersionFormat>{{ api_version }}.${revision}</releaseVersionFormat>
                         </configuration>
                     </execution>
                     <execution>
