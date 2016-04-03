@@ -23,6 +23,10 @@ after_success:
 - git push --quiet https://$GITHUBKEY@github.com/mariuszs/playground.git
   $GIT_TAG > /dev/null 2>&1
 
+branches:
+  except:
+  - /^build-[0-9a-z\-]*/
+
 cache:
   directories:
   - "~/.m2/repository"
