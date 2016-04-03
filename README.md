@@ -3,7 +3,6 @@
 Continuous Release With Maven from Travis CI
 =================
 
-
 Docs:
 --------
 
