@@ -3,11 +3,9 @@ language: java
 jdk:
   - oraclejdk8
 
-before_install: "git clone -b travis `git config --get remote.origin.url` target/travis"
+before_script: ./mvnw release-candidate:updateVersion -Drevision=`git rev-parse --short HEAD`
 
-before_script: ./mvnw release-candidate:updateVersion
-
-script: ./mvnw deploy --settings target/travis/settings.xml
+script: ./mvnw deploy --settings .mvn/settings.xml
 
 branches:
   except:
