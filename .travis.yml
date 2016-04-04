@@ -4,13 +4,13 @@ jdk:
 - oraclejdk8
 
 before_script:
-- "./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER"
+- ./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER
+- ./.travis/importKeys.sh
 
 script:
-- ./mvnw verify
+- ./mvnw install --settings .mvn/settings.xml -Prelease
 
 after_success:
-- ./.travis/before-deploy.sh
 - ./.travis/deploy.sh
 - ./.travis/tag.sh
 
