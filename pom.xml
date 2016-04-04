@@ -34,7 +34,7 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://${env.GITHUBKEY}@github.com/mariuszs/playground.git</connection>
+        <connection>scm:git:https://github.com/mariuszs/playground.git</connection>
         <developerConnection>scm:git:git@github.com:mariuszs/playground.git</developerConnection>
         <url>https://github.com/mariuszs/playground</url>
         <tag>HEAD</tag>
