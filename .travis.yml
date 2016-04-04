@@ -12,7 +12,7 @@ before_script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER; fi
 
 script:
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; ./mvnw deploy --settings .mvn/settings.xml -Prelease else  ./mvnw deploy -Dgpg.skip; fi
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; ./mvnw deploy --settings .mvn/settings.xml -Prelease else ./mvnw install; fi
 
 after_success:
 - git config --global user.email "builds@travis-ci.com"
