@@ -11,7 +11,7 @@ before_script:
 - "./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER"
 
 script:
-- true && [ "$TRAVIS_BRANCH" = 'master' ] && [ "$TRAVIS_PULL_REQUEST" == 'false' ] && "./mvnw deploy --settings .mvn/settings.xml -Prelease"
+- true && [ "$TRAVIS_BRANCH" = 'master' ] && [ "$TRAVIS_PULL_REQUEST" == 'false' ] && ./mvnw deploy --settings .mvn/settings.xml -Prelease
 
 after_success:
 - git config --global user.email "builds@travis-ci.com"
