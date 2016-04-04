@@ -12,7 +12,7 @@ before_script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER; fi
 
 script:
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; ./mvnw deploy --settings .mvn/settings.xml -Prelease else ./mvnw install; fi
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw deploy --settings .mvn/settings.xml -Prelease else ./mvnw install; fi
 
 after_success:
 - git config --global user.email "builds@travis-ci.com"
@@ -21,7 +21,7 @@ after_success:
 - echo -n $GIT_TAG > public/version
 - git commit -m "Set build VERSION number" public/version
 - git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]];  then git push --quiet https://$GITHUBKEY@github.com/mariuszs/playground.git $GIT_TAG > /dev/null 2>&1; fi
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then git push --quiet https://$GITHUBKEY@github.com/mariuszs/playground.git $GIT_TAG > /dev/null 2>&1; fi
 
 branches:
   except:
