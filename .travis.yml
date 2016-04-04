@@ -18,7 +18,7 @@ script:
 
 branches:
   except:
-  - /^v(\d+\.)?(\d+\.)?(\*|\d+)$/
+  - /^v\d/
 
 
 cache:
