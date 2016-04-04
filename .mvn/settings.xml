@@ -17,6 +17,7 @@
             <properties>
                 <gpg.keyname>${env.GPG_KEY_NAME}</gpg.keyname>
                 <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+                <gpg.skip>${env.SKIP_RELEASE}</gpg.skip>
             </properties>
         </profile>
     </profiles>

@@ -187,9 +187,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
-                            <skip>${env.SKIP_RELEASE}</skip>
-                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
