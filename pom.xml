@@ -34,9 +34,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://github.com/Codearte/accurest-maven-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:Codearte/accurest-maven-plugin.git</developerConnection>
-        <url>https://github.com/Codearte/accurest-maven-plugin</url>
+        <connection>scm:git:https://github.com/mariuszs/playground.git</connection>
+        <developerConnection>scm:git:git@github.com:mariuszs/playground.git</developerConnection>
+        <url>https://github.com/mariuszs/playground</url>
         <tag>HEAD</tag>
     </scm>
 
