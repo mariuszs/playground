@@ -34,7 +34,7 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://github.com/mariuszs/playground.git</connection>
+        <connection>scm:git:https://${env.GITHUBKEY}@github.com/mariuszs/playground.git</connection>
         <developerConnection>scm:git:git@github.com:mariuszs/playground.git</developerConnection>
         <url>https://github.com/mariuszs/playground</url>
         <tag>HEAD</tag>
@@ -212,6 +212,22 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <version>1.9.4</version>
+                        <executions>
+                            <execution>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>tag</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <tag>${project.artifactId}-${project.version}</tag>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
