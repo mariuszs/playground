@@ -7,7 +7,7 @@ before_script:
 - "./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER"
 
 script:
-- ./mvnw install --settings .mvn/settings.xml -Prelease
+- ./mvnw verify
 
 after_success:
 - ./.travis/before-deploy.sh
