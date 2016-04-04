@@ -8,13 +8,12 @@ before_install:
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then gpg --fast-import .mvn/codesigning.asc; fi
 
 before_script:
-- "./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER"
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER; fi
 
 script:
-- ./mvnw install --settings .mvn/settings.xml -Prelease
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw install else ./mvnw deploy --settings .mvn/settings.xml -Prelease; fi
 
 after_success:
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw deploy --settings .mvn/settings.xml -Prelease; fi
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - export GIT_TAG=build-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
