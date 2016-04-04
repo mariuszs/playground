@@ -140,7 +140,6 @@
                     <serverId>oss</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                    <skipNexusStagingDeployMojo>${env.SKIP_RELEASE}</skipNexusStagingDeployMojo>
                 </configuration>
             </plugin>
         </plugins>
