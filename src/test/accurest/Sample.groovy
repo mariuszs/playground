@@ -1,7 +1,7 @@
 io.codearte.accurest.dsl.GroovyDsl.make {
     request {
         method 'POST'
-        url('/users') {
+        url('/clients') {
 
         }
         headers {
