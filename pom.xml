@@ -34,7 +34,7 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://${env.GITHUBKEY}@github.com/mariuszs/playground.git</connection>
+        <connection>scm:git:https://github.com/mariuszs/playground.git</connection>
         <developerConnection>scm:git:git@github.com:mariuszs/playground.git</developerConnection>
         <url>https://github.com/mariuszs/playground</url>
         <tag>HEAD</tag>
@@ -117,7 +117,7 @@
                             <goal>updateVersion</goal>
                         </goals>
                         <configuration>
-                            <releaseVersionFormat>{{ api_version }}.${revision}</releaseVersionFormat>
+                            <releaseVersionFormat>{{ api_version }}-b${revision}</releaseVersionFormat>
                         </configuration>
                     </execution>
                     <execution>
@@ -226,7 +226,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <tag>${project.artifactId}-${project.version}</tag>
+                            <tag>v${project.version}</tag>
                         </configuration>
                     </plugin>
                 </plugins>
