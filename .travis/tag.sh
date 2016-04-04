@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [ "$TRAVIS_BRANCH" = 'master' ] && [ "$TRAVIS_PULL_REQUEST" == 'false' ]; then
+if [ "$TRAVIS_PULL_REQUEST" == "false" -a "$TRAVIS_BRANCH" == "master" ]; then
     git config --global user.email "builds@travis-ci.com"
     git config --global user.name "Travis CI"
     export GIT_TAG=build-$TRAVIS_BUILD_NUMBER
