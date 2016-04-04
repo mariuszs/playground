@@ -140,7 +140,6 @@
                     <serverId>oss</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                    <skipNexusStagingDeployMojo>${env.TRAVIS_PULL_REQUEST}</skipNexusStagingDeployMojo>
                 </configuration>
             </plugin>
         </plugins>
