@@ -117,7 +117,7 @@
                             <goal>updateVersion</goal>
                         </goals>
                         <configuration>
-                            <releaseVersionFormat>{{ api_version }}-b${revision}</releaseVersionFormat>
+                            <releaseVersionFormat>{{ api_version }}-${revision}</releaseVersionFormat>
                         </configuration>
                     </execution>
                     <execution>
