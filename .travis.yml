@@ -4,8 +4,8 @@ jdk:
 - oraclejdk8
 
 before_install:
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then openssl aes-256-cbc -K $encrypted_89c06a3c5c8d_key -iv $encrypted_89c06a3c5c8d_iv -in .mvn/codesigning.asc.enc -out .mvn/codesigning.asc -d; fi
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then gpg --fast-import .mvn/codesigning.asc; fi
+- openssl aes-256-cbc -K $encrypted_89c06a3c5c8d_key -iv $encrypted_89c06a3c5c8d_iv -in .mvn/codesigning.asc.enc -out .mvn/codesigning.asc -d
+- gpg --fast-import .mvn/codesigning.asc
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 
@@ -28,6 +28,7 @@ install: true
 cache:
   directories:
   - ~/.m2/repository
+  - ~/.m2/wrapper
 
 env:
   global:
