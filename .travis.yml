@@ -18,7 +18,7 @@ script:
 after_success:
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw scm:checkout; fi
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw -f target/checkout/pom.xml build-helper:parse-version  versions:set -DallowSnapshots \-DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT versions:commit; fi
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw scm:checkin -DworkingDirectory=target/checkout -Dincludes=pom.xml -Dmessage="Setting next development version."; fi
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw scm:checkin --settings .mvn/settings.xml -DworkingDirectory=target/checkout -Dincludes=pom.xml -Dmessage="Setting next development version."; fi
 
 branches:
   except:
