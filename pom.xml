@@ -104,14 +104,15 @@
                 <inherited>false</inherited>
                 <executions>
                     <execution>
+                        <id>default-cli</id>
                         <goals>
                             <goal>tag</goal>
                         </goals>
+                        <configuration>
+                            <tag>v${project.version}</tag>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <tag>v${project.version}</tag>
-                </configuration>
             </plugin>
         </plugins>
 
