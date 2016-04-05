@@ -217,7 +217,7 @@
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>default-deploy</id>
+                                <id>deploy-to-oss</id>
                                 <phase>deploy</phase>
                                 <goals>
                                     <goal>deploy</goal>
