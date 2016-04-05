@@ -10,6 +10,7 @@ before_install:
 - git config --global user.name "Travis CI"
 
 before_script:
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw --batch-mode release:update-versions -DautoVersionSubmodules=true; fi
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw release-candidate:updateVersion -Drevision=$TRAVIS_BUILD_NUMBER; fi
 
 script:
