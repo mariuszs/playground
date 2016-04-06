@@ -13,8 +13,4 @@ Docs:
  * http://www.debonair.io/post/maven-cd/
  * https://www.theguardian.com/info/developer-blog/2014/sep/16/shipping-from-github-to-maven-central-and-s3-using-travis-ci
  * http://stackoverflow.com/questions/14483118/maven-change-version-properties-in-pom-xml
-
-
-
-
-
+ * https://github.com/atam4j/atam4j/wiki/Continuous-Delivery-to-Maven-Central
