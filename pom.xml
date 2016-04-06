@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
 
@@ -204,6 +205,43 @@
                         </executions>
                     </plugin>
                     <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>1.10</version>
+                        <executions>
+                            <execution>
+                                <id>parse-version</id>
+                                <goals>
+                                    <goal>parse-version</goal>
+                                </goals>
+
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <executions>
+                            <execution>
+                                <id>set-snapshot-version</id>
+                                <goals>
+                                    <goal>set</goal>
+                                </goals>
+                                <configuration>
+                                    <allowSnapshots/>
+                                    <newVersion>\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT</newVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>commit-version</id>
+                                <goals>
+                                    <goal>commit</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-scm-plugin</artifactId>
                         <version>1.9.4</version>
@@ -217,6 +255,17 @@
                                 </goals>
                                 <configuration>
                                     <tag>v${project.version}</tag>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>push-modified-pome</id>
+                                <goals>
+                                    <goal>checkin</goal>
+                                </goals>
+                                <configuration>
+                                    <connectionType>connection</connectionType>
+                                    <includes>pom.xml</includes>
+                                    <message>Setting next development version.</message>
                                 </configuration>
                             </execution>
                         </executions>
