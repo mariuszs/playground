@@ -12,6 +12,10 @@
         </server>
     </servers>
 
+    <activeProfiles>
+        <activeProfile>release</activeProfile>
+    </activeProfiles>
+
     <profiles>
         <profile>
             <id>release</id>
