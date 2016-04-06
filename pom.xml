@@ -7,7 +7,7 @@
     <groupId>io.codearte.maven.playground</groupId>
     <artifactId>playground</artifactId>
     <packaging>jar</packaging>
-    <version>\0.\0.\1-SNAPSHOT</version>
+    <version>1.2.4-SNAPSHOT</version>
 
     <name>maven playground</name>
     <description>Maven Playground</description>
@@ -231,7 +231,7 @@
                                 </goals>
                                 <configuration>
                                     <allowSnapshots/>
-                                    <newVersion>\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT</newVersion>
+                                    <newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT</newVersion>
                                 </configuration>
                             </execution>
                             <execution>
