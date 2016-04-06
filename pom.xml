@@ -211,7 +211,7 @@
                         <executions>
                             <execution>
                                 <id>parse-version</id>
-                                <phase>clean</phase>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>parse-version</goal>
                                 </goals>
@@ -224,8 +224,8 @@
                         <version>2.2</version>
                         <executions>
                             <execution>
-                                <id>set-snapshot-version</id>
-                                <phase>clean</phase>
+                                <id>switch-to-snapshot-version</id>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>set</goal>
                                 </goals>
@@ -236,6 +236,7 @@
                             </execution>
                             <execution>
                                 <id>commit-version</id>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>commit</goal>
                                 </goals>
@@ -249,8 +250,8 @@
                         <inherited>false</inherited>
                         <executions>
                             <execution>
-                                <id>tag-release</id>
-                                <phase>clean</phase>
+                                <id>tag-new-release</id>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>tag</goal>
                                 </goals>
@@ -259,15 +260,15 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>push-modified-pome</id>
-                                <phase>clean</phase>
+                                <id>save-changes</id>
+                                <phase>deploy</phase>
                                 <goals>
                                     <goal>checkin</goal>
                                 </goals>
                                 <configuration>
                                     <connectionType>connection</connectionType>
                                     <includes>pom.xml</includes>
-                                    <message>Setting next development version.</message>
+                                    <message>Setting next development version to ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT.</message>
                                 </configuration>
                             </execution>
                         </executions>

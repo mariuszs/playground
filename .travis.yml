@@ -16,10 +16,6 @@ before_script:
 script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw deploy --settings .mvn/settings.xml -Prelease; else ./mvnw install; fi
 
-after_success:
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw build-helper:parse-version  versions:set -DallowSnapshots \-DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT versions:commit; fi
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then ./mvnw scm:checkin --settings .mvn/settings.xml -DconnectionType=connection -Dincludes=pom.xml -Dmessage="Setting next development version."; fi
-
 branches:
   except:
   - /^v\d/
