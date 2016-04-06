@@ -6,7 +6,7 @@
     <groupId>io.codearte.maven.playground</groupId>
     <artifactId>playground</artifactId>
     <packaging>jar</packaging>
-    <version>1.2.18-SNAPSHOT</version>
+    <version>1.2.19-SNAPSHOT</version>
 
     <name>maven playground</name>
     <description>Maven Playground</description>
