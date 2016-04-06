@@ -14,7 +14,7 @@
 
     <profiles>
         <profile>
-            <id>oss</id>
+            <id>release</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>

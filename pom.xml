@@ -103,6 +103,7 @@
                 <version>1.6.7</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <skipStaging>true</skipStaging>
                     <serverId>oss</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
@@ -114,11 +115,11 @@
                 <version>2.2</version>
                 <executions>
                     <execution>
+                        <id>default-cli</id>
                         <goals>
                             <goal>set</goal>
                         </goals>
                         <configuration>
-                            <allowSnapshots/>
                             <newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</newVersion>
                         </configuration>
                     </execution>
