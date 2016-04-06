@@ -61,7 +61,6 @@
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>io.codearte.accurest</groupId>
                 <artifactId>accurest-maven-plugin</artifactId>
@@ -99,30 +98,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>com.smartcodeltd</groupId>
-                <artifactId>release-candidate-maven-plugin</artifactId>
-                <version>1.0-201603091838.01dbbbf</version>
-                <executions>
-                    <execution>
-                        <id>default-cli</id>
-                        <goals>
-                            <goal>updateVersion</goal>
-                        </goals>
-                        <configuration>
-                            <releaseVersionFormat>{{ api_version }}-${revision}</releaseVersionFormat>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <goals>
-                            <goal>version</goal>
-                        </goals>
-                        <configuration>
-                            <outputTemplate>PROJECT_VERSION={{ version }}</outputTemplate>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>1.6.7</version>
@@ -132,6 +107,22 @@
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set</goal>
+                        </goals>
+                        <configuration>
+                            <allowSnapshots/>
+                            <newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</newVersion>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
 
