@@ -268,7 +268,9 @@
                                 <configuration>
                                     <connectionType>connection</connectionType>
                                     <includes>pom.xml</includes>
-                                    <message>Setting next development version to ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT.\n[ci skip]</message>
+                                    <message>Setting next development version to ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}-SNAPSHOT.
+
+[ci skip]</message>
                                 </configuration>
                             </execution>
                         </executions>
